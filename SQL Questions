@@ -30,7 +30,7 @@ c. Add the average freight per SalesOrderID
 
 d. Add a Cumulative/Running Total sum
 
-#Q-5 This fictional scenario will be true for questions 51, 52, and 53.
+#Q-5  
 
 As AdventureWorks continues to grow more and more data will be captured, meaning proper storage and server space will be needed. Dan Wilson, the database administrator at AdventureWorks has reached out to you. Dan is currently working on a project to determine how much storage and server space will be needed for the next year. He has asked you to idenitfy the following 5 columns:
 
