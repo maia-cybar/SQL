@@ -1,1 +1,147 @@
+# Q-1 Ken Sánchez, the CEO of AdventureWorks, has recently changed his email address.
+
+a. What is Ken's current email address?
+
+b. Update his email address to 'Ken.Sánchez@adventure-works.com'
+
+# Q-2 a. Using the RANK function rank the employees in the Employee table by the hiredate. Label the column as 'Seniority'
+
+b. Assuming Today is March 3, 2014, add 3 columns for the number of days, months, and years the employee has been employed.
+
+# Q-3 AdventureWorks leadership has asked you to put together a report. Follow the steps below to build the report.
+
+a. Pull a distinct list of every region. Use the SalesTerritory as the region.
+
+b. Add the Sum(TotalDue) to the list of regions
+
+c. Add each customer name. Concatenate First and Last Names
+
+d. Using ROW_NUMBER and a partition rank each customer by region. For example, Australia is a region and we want to rank each customer by the Sum(TotalDue). 
+
+# Q-4Due to an increase in shipping cost you've been asked to pull a few figures related to the freight column in
+
+Sales.SalesOrderHeader
+
+a. How much has AdventureWorks spent on freight in totality?
+
+b. Show how much has been spent on freight by year (ShipDate)
+
+c. Add the average freight per SalesOrderID
+
+d. Add a Cumulative/Running Total sum
+
+#Q-5 This fictional scenario will be true for questions 51, 52, and 53.
+
+As AdventureWorks continues to grow more and more data will be captured, meaning proper storage and server space will be needed. Dan Wilson, the database administrator at AdventureWorks has reached out to you. Dan is currently working on a project to determine how much storage and server space will be needed for the next year. He has asked you to idenitfy the following 5 columns:
+
+a.  Table Name
+
+b. The number of rows in each user table (remember there are 71 user tables. 72 if you count sysdiagrams for the entity relationship diagram.) Use the rows column in sys.partitions.
+
+c. The current allocated space for each table in kilobytes (kb)
+
+d. The used space for each table in kilobytes (kb)
+
+e. The unused space for each table in kilobytes (kb)
+
+
+*Note* (pages * 8) = kilobytes
+
+#Q-6 AdventureWorks is implementing a third party software to track customer and product information. Each person in the database will be assigned a default username and password.
+
+a. Create a username for each person by removing the "@adventure-works.com" on their email in the EmailAddress table. For example, the CEO, Ken Sanchez's username will be "Ken0"
+
+b. Are there any duplicate usernames?
+
+c. Take the results from Part A and join Person.Person. Then create a temporary password by concatenating the elements below:
+
+1. First 2 characters of First Name
+
+2. "."
+
+3. Last 2 characters of Last Name
+
+4. "."
+
+5. First 5 characters of NewID()
+
+# Q-7 a. Find the BusinessEntityID for the SalesPerson that has the highest SalesYTD.
+
+b. Declare a local variable and put the BusinessEntityID from part a into the local variable. Name the local variable @TopSalesPersonID. Make the datatype int
+
+c. Declare a second local variable called @CurrentYear. Insert the most recent orderdate year into @CurrentYear.    Data type int.
+
+d. Use @TopSalesPersonID and @currentYear in a where clause and show top 10 products (SubTotal) that this person has sold in the current year.
+
+# Q- 8 You've been asked to create a stored procedure that can be used for an online interface. This interface will allow customers to search for their Purchase History at AdventureWorks. When the customer inputs their phone number and account number into the online interface their will be able to see the products they purchased, the date it was ordered/purchased on, and the line total for each product.
+
+a. Write a statement that includes the following elements:
+
+- Person FullName (First and Last Name)
+
+- Account Number
+
+- Phone Number
+
+- Order Date (SalesOrderHeader)
+
+- Product Name
+
+- Line Total
+
+
+
+b. Put this statement into a stored procedure. Add two parameters to    the stored procedure - Account Number and Phone Number. These parameters will require input variables in order to return the correct information.
+
+
+
+c. Exec the Stored Procedure for the following Account Numbers and Phone numbers.
+
+- Phone Number: 245-555-0173 Account Number '10-4020-000001'
+
+- Phone Number: 417-555-0131 Account Number '10-4030-021762'
+
+- Phone Number 620-555-0117 Account Number '10-4020-000695'
+
+
+d. Drop the Stored Procedure
+
+# Q-9 You will notice that the Sales.SalesOrderDetail table has three indexes:
+
+AK_SalesOrderDetail_rowguid
+
+IX_SalesOrderDetail_ProductID
+
+PK_SalesOrderDetail_SalesOrderID_SalesOrderDetailID
+
+
+
+a. Drop the first index -  AK_SalesOrderDetail_rowguid
+
+
+
+b. Drop the second index - IX_SalesOrderDetail_ProductID
+
+
+# Q- 10Batching using a while loop is an effective way to improve performance when working with large datasets. Although in this question we will not be working with a large dataset we will be creating a while loop. We are going to create a table with two columns - SalesOrderHeader.Orderdate and TotalDue... In other words this will give you Daily Gross Revenue. We are going to insert this data into a table in increments of 100. Below you will see a Create Table and Insert Into Statement:
+
+Create Table Sales.DailyRevenue
+    (OrderDate Date
+    ,TotalDue money)
+Insert Into Sales.DailyRevenue
+    (OrderDate
+    ,TotalDue)
+Select 
+    OrderDate
+    ,Sum(Totaldue) as TotalDue
+From Sales.SalesOrderHeader
+Group by OrderDate
+Order by 1 desc
+
+
+a. This insert statement is inserting 1,124 rows of data into Sales.DailyRevenue. Put this statement into a while loop and only insert 100 rows at a time.
+
+
+
+b. Print a message in the while loop that will give an update on what OrderDates were inserted into the table. For Example, "Data Between May 2011 through September 2011 inserted"
 
