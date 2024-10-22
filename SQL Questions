@@ -123,7 +123,7 @@ a. Drop the first index -  AK_SalesOrderDetail_rowguid
 b. Drop the second index - IX_SalesOrderDetail_ProductID
 
 
-# Q- 10Batching using a while loop is an effective way to improve performance when working with large datasets. Although in this question we will not be working with a large dataset we will be creating a while loop. We are going to create a table with two columns - SalesOrderHeader.Orderdate and TotalDue... In other words this will give you Daily Gross Revenue. We are going to insert this data into a table in increments of 100. Below you will see a Create Table and Insert Into Statement:
+# Q- 10 Batching using a while loop is an effective way to improve performance when working with large datasets. Although in this question we will not be working with a large dataset we will be creating a while loop. We are going to create a table with two columns - SalesOrderHeader.Orderdate and TotalDue... In other words this will give you Daily Gross Revenue. We are going to insert this data into a table in increments of 100. Below you will see a Create Table and Insert Into Statement:
 
 Create Table Sales.DailyRevenue
     (OrderDate Date
